@@ -38,8 +38,8 @@ int main(int argc, const char * argv[]) {
                 [cal printCalendarWithYearAndAMonth:year];
             }
         }else{
-            printf("usage: cal [-jy] [[month] year]\n"
-                   "cal [-j] [-m month] [year]\n");
+            printf("usage: ./cal [-jy] [[month] year]\n"
+                   "./cal [-j] [-m month] [year]\n");
         }
         
     }

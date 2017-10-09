@@ -38,15 +38,6 @@
         }else{
             NSString *monthNum = [Calendar exchangeArabicToChinese:(i - 1)];
             printf("%2s ", [monthNum UTF8String]);
-//            if(i == 2){
-//                printf("%2s ", [moncalthNum UTF8String]);
-//            }else if(i == 3){
-//                printf("%5s", [monthNum UTF8String]);
-//            }else if(i == 5){
-//                printf(" %4s", [monthNum UTF8String]);
-//            }else{
-//                printf("%4s", [monthNum UTF8String]);
-//            }
         }
     }
 }
@@ -84,7 +75,6 @@
     }
     long count = weekdayOfFirstDay - 1;
     for(int i = 1; i <= dayLength; ++i){
-        //        printf("%2s ", [[NSString stringWithFormat:@"%d",i] UTF8String]);
         printf("%2d ", i);
         ++count;
         if(count == 7){
