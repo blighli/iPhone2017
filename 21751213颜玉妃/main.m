@@ -30,23 +30,23 @@ int main(int argc, const char * argv[]) {
             yue = yearAndMonthNow.presentMonth;
             
             [printMonthObj printMonth:year yue:yue];
-            NSLog(@"1111");
+//            NSLog(@"1111");
         }else if(argc == 3){
             //执行“cal 2014”命令；
             //这个argv2表示年份；
             NSString *argv2 = [NSString stringWithUTF8String:argv[2]];
             
             [printYearObj printYear:[argv2 intValue]];
-            NSLog(@"2222");
+//            NSLog(@"2222");
         }else if(argc == 4){
             //执行“cal 10 2014”命令；
             //这一步是为了把传递进来的char * argv参数转化为 OC中的NSString；
             NSString *argv2 = [NSString stringWithUTF8String:argv[2]];
             NSString *argv3 = [NSString stringWithUTF8String:argv[3]];
             [printMonthObj printMonth:[argv3 intValue] yue:[argv2 intValue]];
-            NSLog(@"44444");
+            //NSLog(@"44444");
         }
     }
-    NSLog(@"hahahah");
+//    NSLog(@"hahahah");
     return 0;
 }
