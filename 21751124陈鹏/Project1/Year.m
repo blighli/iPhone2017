@@ -10,7 +10,7 @@
 #import "Month.h"
 
 @implementation Year
-@synthesize m_nYear, m_nMonthNum, m_aMonths;
+@synthesize m_nYear, m_nMonthNum;
 
 -(id) init{
     self = [super init];
@@ -20,6 +20,7 @@
         self->m_nYear = (int)[components year];
         self->m_nMonthNum = (int)[components month];
         self->m_aMonths = [self createMonthsArray];
+       
     }
     return self;
 }
@@ -71,6 +72,10 @@
     }
     
     return array;
+}
+
+- (NSArray*) getMonths{
+    return self->m_aMonths;
 }
 
 @end

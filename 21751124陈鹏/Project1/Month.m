@@ -34,18 +34,19 @@
 - (void) printMonthTitle{
     for(int i = 1; i <= 7; ++i){
         if(i == 1){
-            printf(" %3s", "日");
+            printf("%2s ", "日");
         }else{
             NSString *monthNum = [Calendar exchangeArabicToChinese:(i - 1)];
-            if(i == 2){
-                printf("%4s", [monthNum UTF8String]);
-            }else if(i == 3){
-                printf("%5s", [monthNum UTF8String]);
-            }else if(i == 5){
-                printf(" %4s", [monthNum UTF8String]);
-            }else{
-                printf("%4s", [monthNum UTF8String]);
-            }
+            printf("%2s ", [monthNum UTF8String]);
+//            if(i == 2){
+//                printf("%2s ", [moncalthNum UTF8String]);
+//            }else if(i == 3){
+//                printf("%5s", [monthNum UTF8String]);
+//            }else if(i == 5){
+//                printf(" %4s", [monthNum UTF8String]);
+//            }else{
+//                printf("%4s", [monthNum UTF8String]);
+//            }
         }
     }
 }
@@ -57,11 +58,12 @@
     int dayLength = [self m_nDayLength];
 
     for(int i = 1; i < weekdayOfFirstDay; ++i){
-        printf("%3s", " ");
+        printf("%2s ", " ");
     }
     long count = weekdayOfFirstDay - 1;
     for(int i = 1; i <= dayLength; ++i){
-        printf("%3d", i);
+        
+        printf("%2d ", i);
         ++count;
         if(count == 7){
             printf("\n");

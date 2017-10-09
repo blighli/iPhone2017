@@ -17,10 +17,10 @@
 
 @property int m_nYear;
 @property int m_nMonthNum;
-@property NSArray *m_aMonths;
 
 - (id) init;
 - (id) initWithYear: (int) year;
 - (id) initWithYear: (int) year AndMonth: (int) month;
 - (NSArray*) createMonthsArray;
+- (NSArray*) getMonths;
 @end

@@ -13,13 +13,13 @@
 + (BOOL) checkLArgLegalityWithYear:(int)year{
     if(year <= 0 || year > 9999){
         if(year == 0){
-            printf("cal: year 0 not in range 1...9999\n");
+            printf("cal: year 0 not in range 1..9999\n");
         }else if(year < 0){
             printf("cal: illegal option -- %d\n"
                    "usage: cal [-jy] [[month] year]\n"
                    "cal [-j] [-m month] [year]\n", -year);
         }else if(year > 9999){
-            printf("cal year %d not int range 1...9999\n", year);
+            printf("cal: year %d not in range 1..9999\n", year);
         }
         return NO;
     }
@@ -31,13 +31,13 @@
     }
     if(month <= 0 || month > 12){
         if(month == 0){
-            printf("cal: month 0 not in range 1...12\n");
+            printf("cal: 0 is neither a month number (1..12) nor a name\n");
         }else if(month < 0){
             printf("cal: illegal option -- %d\n"
                    "usage: cal [-jy] [[month] year]\n"
                    "cal [-j] [-m month] [year]\n", -month);
         }else if(month > 12){
-            printf("cal month %d not int range 1...12\n", month);
+            printf("cal: %d is neither a month number (1..12) nor a name\n", month);
         }
         return NO;
     }
@@ -91,17 +91,17 @@
 - (void) printCalendarWithYearAndAMonth: (Year*) year{
     int yearNum =  [year m_nYear];
     int monthNum = [year m_nMonthNum];
-    NSArray *months = [year m_aMonths];
+    NSArray *months = [year getMonths];
     NSString *month = [Calendar exchangeArabicToChinese:monthNum];
-    printf("%10s月 %d\n", [month UTF8String], yearNum);
+    printf("%8s月 %d\n", [month UTF8String], yearNum);
     Month *temp = [months objectAtIndex:0];
     [temp printMonthWithoutNum];
 }
 
 -(void) printCalendarWithYearAndAllMonth:(Year *)year{
     int yearNum =  [year m_nYear];
-    NSArray *months = [year m_aMonths];
-    printf("%32d\n\n", yearNum);
+    NSArray *months = [year getMonths];
+    printf("%33d\n\n", yearNum);
     for(int i = 0; i < [months count]; i += 3){
         NSArray *temp = [NSArray arrayWithObjects:[months objectAtIndex:i], [months objectAtIndex:i + 1], [months  objectAtIndex:i + 2], nil];
         if(i < 9){
@@ -113,7 +113,7 @@
         for(int j = 0; j < [temp count]; ++j){
             Month *month = [temp objectAtIndex:j];
             [month printMonthTitle];
-            printf("  ");
+            printf(" ");
         }
         printf("\n");
         int dayLengths[3] = {[[temp objectAtIndex:0] m_nDayLength], [[temp objectAtIndex:1] m_nDayLength], [[temp objectAtIndex:2] m_nDayLength]};
@@ -143,10 +143,10 @@
                 }
                 while(control < 7){
                     if(counts[j] <= dayLengths[j]){
-                        printf("%3d", counts[j]);
+                        printf("%2d ", counts[j]);
                         ++counts[j];
                     }else{
-                        printf("%3s", " ");
+                        printf("%2s ", " ");
                     }
                     ++control;
                     if(control == 7){
