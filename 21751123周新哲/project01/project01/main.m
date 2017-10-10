@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         switch (argc) {
             case 1: {
-                NSString *calString = [Cal calToday];
+                NSString *calString = [Cal showCalByToday];
                 NSLog(@"%@\n",calString);
                 break;
             }
@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
                     NSLog(@"cal: year %d not in range 1..9999", year);
                     return 0;
                 } else {
-                    NSString *calString = [Cal calAYear:year];
+                    NSString *calString = [Cal showCalByYear:year];
                     NSLog(@"%@\n",calString);
                 }
                 break;
@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
                 } else if (year<1 || year>9999) {
                     NSLog(@"cal: year %d not in range 1..9999", year);
                 } else {
-                    NSString *calString = [Cal calAMonth:month andAYear:year];
+                    NSString *calString = [Cal showCalByMonth:month andYear:year];
                     NSLog(@"%@\n",calString);
                 }
                 break;

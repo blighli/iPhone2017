@@ -10,13 +10,13 @@
 
 @interface Cal : NSObject
 
-+ (NSString *)calToday;
++ (NSString *)showCalByToday;
 
-+ (NSString *)calAYear:(int)year;
-
-+ (NSString *)calAMonth:(int)month andAYear:(int)year;
++ (NSString *)showCalByYear:(int)year;
 
 + (NSString *)showCalByMonth:(NSInteger)month andYear:(NSInteger)year;
+
++ (NSString *)buildMonthCal:(NSInteger)month :(NSInteger)year;
 
 + (NSDate *)GMT2Locale:(NSDate *)GMTDate;
 
