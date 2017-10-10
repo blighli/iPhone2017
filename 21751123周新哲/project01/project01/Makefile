@@ -1,14 +1,20 @@
 DIR_SRC = ./
-SRC =
+SRC = $(wildcard ${DIR_SRC}/*.m)
 
-install: Cal.m main.m
-            clang -fno-objc-arc -framework foundation Cal.m main.m -o myCal
+TARGET = myCal
 
-test:
-        ./myCal && ./myCal 2 2016 && ./myCal 2017
+CC = clang
+CFLAGS = -fno-objc-arc -framework foundation
+
+install: ${SRC}
+${CC} ${CFLAGS} ${SRC} -o ${TARGET}
 
 run:
-        ./myCal
+./${TARGET}
+
+test:
+./${TARGET} && ./${TARGET} 2017 && ./${TARGET} 2 2016
 
 clean:
-        rm myCal
+rm ${TARGET}
+
