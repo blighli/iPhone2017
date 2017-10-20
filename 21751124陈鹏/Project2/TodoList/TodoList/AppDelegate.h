@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UITableViewDataSource>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UITableViewDataSource,
+                                UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

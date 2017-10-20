@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 
 NSString *TodoListPath()
 {
@@ -24,7 +23,7 @@ NSString *TodoListPath()
 @property NSMutableArray *tasks;
 
 - (void)addTask:(id)sender;
-- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer;
+//- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer;
 @end
 
 @implementation AppDelegate
@@ -35,7 +34,7 @@ NSString *TodoListPath()
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    ViewController *vc = [[ViewController alloc] init];
+    UIViewController *vc = [[UIViewController alloc] init];
     self.window.rootViewController = vc;
 
     int winFrameWidth = self.window.frame.size.width;
@@ -51,11 +50,7 @@ NSString *TodoListPath()
     self.taskTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.taskTable setSeparatorColor:[UIColor whiteColor]];
     self.taskTable.dataSource = self;
-    
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0; //seconds  设置响应时间
-    lpgr.delegate = self;
-    [self.taskTable addGestureRecognizer:lpgr]; //启用长按事件
+    self.taskTable.delegate = self;
     [self.taskTable registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"Cell"];
     
@@ -149,29 +144,49 @@ NSString *TodoListPath()
     NSString *item = [self.tasks objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:item];
     
+    if (cell.gestureRecognizers.count ==0) {
+        UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+        lpgr.minimumPressDuration = 1; //seconds  设置响应时间
+        lpgr.delegate = self;
+        [cell addGestureRecognizer:lpgr];
+    }
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击事件");
+    
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer  //长按响应函数
 {
-    UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:@"删除选择" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    
-    alert1.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
-    [alert1 show];
-}
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0){
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        UITableViewCell *cell = (UITableViewCell *)gestureRecognizer.view;
+
+        [cell becomeFirstResponder];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"删除选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            [self.tasks removeObjectAtIndex:[[self.taskTable indexPathForCell:cell] row]];
+            [self.taskTable reloadData];
+            NSLog(@"%@", self.tasks);
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        
+       [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         
     }
-    
 }
+//
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == 0){
+//
+//    }
+//
+//}
 
 @end
