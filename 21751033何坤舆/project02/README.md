@@ -12,5 +12,5 @@ iOS程序：Task List
 
 ***
 ## Screenshots
-![initial view](./img/Simulator Screen Shot - iPhone 8 Plus - 2017-10-21 at 19.09.35.png)<br/><br/>
-![keyboard](./img/Simulator Screen Shot - iPhone 8 Plus - 2017-10-21 at 19.10.10.png)<br/><br/>
+![initial view](./img/1.png)<br/><br/>
+![keyboard](./img/2.png)<br/><br/>
