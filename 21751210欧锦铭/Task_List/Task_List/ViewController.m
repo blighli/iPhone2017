@@ -19,24 +19,15 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+#pragma mark- Life Cycle
+
+-(void)viewDidLoad {
     [super viewDidLoad];
     
     self.tasks = [NSMutableArray array];
 }
 
-- (void)addTask: (id)sender {
-    
-}
-
--(NSString *)docPath
-{
-    
-    NSArray *pathList = NSSearchPathForDirectoriesInDomains(
-                                                            NSDocumentDirectory, NSUserDomainMask, YES);
-    return [[pathList objectAtIndex:0]
-            stringByAppendingPathComponent:@"data.txt"];
-}
+#pragma mark- Event Response
 
 - (IBAction)insertData:(UIButton *)sender {
     NSString *text = [self.taskField text]; //从输入框获取新的任务
@@ -51,6 +42,17 @@
     [self.taskField setText:@""]; //清空输入框
     [self.taskField resignFirstResponder]; //关闭软键盘
     
+}
+
+#pragma mark- Private method
+
+-(NSString *)docPath
+{
+    
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(
+                                                            NSDocumentDirectory, NSUserDomainMask, YES);
+    return [[pathList objectAtIndex:0]
+            stringByAppendingPathComponent:@"data.txt"];
 }
 
 #pragma mark- UITableViewDelegate, UITableViewDataSource
