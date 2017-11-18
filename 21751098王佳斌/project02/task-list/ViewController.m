@@ -70,7 +70,6 @@
     [self.inputTextField resignFirstResponder];
   }
 }
-
 #pragma mark - 保存数据到CoreData;
 - (void) saveToCoreData:(NSString *)taskName{
   
@@ -78,7 +77,6 @@
   NSManagedObject *row = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:context];
   [row setValue:taskName forKey:@"taskname"];
   [context save:nil];
-  NSLog(@"已保存到数据库");
 }
 
 #pragma mark - UIScrollViewDelegate
