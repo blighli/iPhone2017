@@ -1,0 +1,20 @@
+//
+//  InfiniteHelp_Header.pch
+//  InfiniteHelp
+//
+//  Created by sands on 16/7/19.
+//  Copyright © 2016年 sands. All rights reserved.
+//
+
+#ifndef InfiniteHelp_Header_pch
+#define InfiniteHelp_Header_pch
+
+#import "AFNetworking.h"
+#import "IQKeyboardManager.h"
+#import "MJRefresh.h"
+#import "AFNetConnect.h"
+#import "UIImageView+WebCache.h"
+#import "UserMacros.h"
+#import "AppDelegate.h"
+
+#endif
