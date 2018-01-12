@@ -1,6 +1,6 @@
 iOS大作业
 
-#模仿百思不得姐app部分模块
+# 模仿百思不得姐app部分模块
 
 ## 使用技术
 1. Objective-c开发语言
@@ -20,4 +20,4 @@ iOS大作业
 4. “精华”页面的分栏切换，下拉刷新
 
 ## gif演示
-![演示gif](/images/demo.gif)
+![演示gif](images/demo.gif)
