@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *tagField;
 
 - (IBAction)add;
 
@@ -25,7 +26,7 @@
     //在viewDidLoad中监听两个文本框，当文字改变的时候，改变按钮的enable状态
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.nameField];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.phoneField];
-    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.tagField];
 }
 
 -(void)dealloc{
@@ -45,6 +46,7 @@
         ESContact *contact = [[ESContact alloc] init];
         contact.name = self.nameField.text;
         contact.phone = self.phoneField.text;
+        contact.contactTag = self.tagField.text;
         [self.delegate addViewController:self didAddContact:contact];
     }
 
@@ -57,7 +59,7 @@
 }
 
 -(void)textChange{
-    self.addBtn.enabled = self.nameField.text.length && self.phoneField.text.length;
+    self.addBtn.enabled = self.nameField.text.length && self.phoneField.text.length&&self.tagField.text.length;
 }
 
 @end

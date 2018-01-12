@@ -21,6 +21,7 @@
 @interface ESEditViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *tagField;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
 - (IBAction)edit:(id)sender;
@@ -39,9 +40,11 @@
     // Do any additional setup after loading the view.
     self.nameField.text = self.contact.name;
     self.phoneField.text = self.contact.phone;
+    self.tagField.text = self.contact.contactTag;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.nameField];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.phoneField];
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextFieldTextDidChangeNotification object:self.tagField];
 }
 
 -(void)dealloc{
@@ -80,6 +83,7 @@
         //保存输入后的数据
         self.contact.name = self.nameField.text;
         self.contact.phone = self.phoneField.text;
+        self.contact.contactTag = self.tagField.text;
         [self.delegate editViewController:self didSaveContact:self.contact];
     }
 }
@@ -93,9 +97,11 @@
         //恢复原来数据
         self.nameField.text = self.contact.name;
         self.phoneField.text = self.contact.phone;
+        self.tagField.text = self.contact.contactTag;
         //文本框不可输入
         self.nameField.enabled = NO;
         self.phoneField.enabled = NO;
+        self.tagField.enabled = NO;
         //键盘隐藏
         [self.view endEditing:YES];
         //保存按钮不可见
@@ -109,6 +115,7 @@
         NSLog(@"%@",self.editBtn.title);
         self.nameField.enabled = YES;
         self.phoneField.enabled = YES;
+        self.tagField.enabled = YES;
         //保存按钮可见
         self.addBtn.hidden = NO;
         

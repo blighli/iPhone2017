@@ -90,7 +90,7 @@
         [MBProgressHUD showMessage:@"Loading" toView:[UIApplication sharedApplication].keyWindow];
         
         //在两秒之后执行代码块里的代码
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (1.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) (2.0*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             //移除遮盖
             //[MBProgressHUD hideHUD];
             [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];

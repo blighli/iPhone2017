@@ -11,4 +11,5 @@
 @interface ESContact : NSObject<NSCoding>
 @property (strong,nonatomic) NSString* name;
 @property (strong,nonatomic) NSString* phone;
+@property (strong,nonatomic) NSString* contactTag;
 @end
