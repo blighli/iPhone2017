@@ -1,0 +1,49 @@
+//
+//  BuDeJie.pch
+//  BuDejie
+//
+//  Created by 何坤舆 on 2018/1/7.
+//  Copyright © 2018年 何坤舆. All rights reserved.
+//
+
+#ifndef BuDeJie_pch
+#define BuDeJie_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* BuDeJie_pch */
+
+/*
+ pch步骤：1.提前编译Pch
+ 
+ 1. 存放公用宏
+ 2. 存放公用头文件
+ 3. 自定义Log
+ */
+//#define ABC 20
+#import "UIView+Frame.h"
+#import "UIBarButtonItem+Item.h"
+#import "HMSConst.h"
+
+#define HMSFunc HMSLog(@"%s",__func__)
+#define HMSScreenW [UIScreen mainScreen].bounds.size.width
+#define HMSScreenH [UIScreen mainScreen].bounds.size.height
+
+#define HMSColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green: (g) / 256.0 blue: (b) / 256.0 alpha:1]
+#define HMSRandomColor HMSColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#ifdef DEBUG
+//调试阶段
+#define HMSLog(...) NSLog(__VA_ARGS__)
+
+#else
+//发布阶段
+#define HMSLog(...)
+
+#endif
+
+/** 屏幕适配 **/
+#define iphone6P (HMSScreenH == 736)
+#define iphone6  (HMSScreenH == 667)
+#define iphone5  (HMSScreenH == 568)
+#define iphone4  (HMSScreenH == 480)
