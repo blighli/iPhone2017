@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--通讯-->
+        <scene sceneID="lKq-jg-pYS">
+            <objects>
+                <viewController storyboardIdentifier="contact" id="P03-HC-0FF" customClass="ContactScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UfT-AW-tZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="wXq-5y-w8M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gKz-O5-rha">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-lQ-wAc">
+                                <rect key="frame" x="172" y="318" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="返回"/>
+                                <connections>
+                                    <action selector="back:" destination="P03-HC-0FF" eventType="touchUpInside" id="g5V-Y1-tMt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="通讯" image="tab_contacts" selectedImage="tab_contacts_hover" id="UMs-Hj-6Zt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ob0-03-3uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="478"/>
+        </scene>
+        <!--个人-->
+        <scene sceneID="Z6X-Ff-5oj">
+            <objects>
+                <viewController storyboardIdentifier="profile" id="t0d-tx-log" customClass="ProfileScreen" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="188" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kde-P8-e0I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="t0d-tx-log" id="aOp-a4-I4V"/>
+                            <outlet property="delegate" destination="t0d-tx-log" id="iec-hs-1aw"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="个人" image="tab_me" selectedImage="tab_me_hover" id="g69-1e-Rtu"/>
+                    <connections>
+                        <outlet property="tableView" destination="Kde-P8-e0I" id="iDU-W5-MAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBO-Vf-p95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="748"/>
+        </scene>
+        <!--消息-->
+        <scene sceneID="ymI-9o-JVB">
+            <objects>
+                <viewController storyboardIdentifier="message" id="dKV-c9-JbD" customClass="MessageScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xYO-FZ-Lky"/>
+                        <viewControllerLayoutGuide type="bottom" id="cri-ca-Xw3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vqv-So-DCX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gVz-et-Wle">
+                                <rect key="frame" x="0.0" y="-8" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="528112613.22167802">
+                                    <!--2017-09-26 09:56:53 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="6311300400">
+                                    <!--2200-12-31 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V56-4l-DiV">
+                                <rect key="frame" x="165" y="542" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="btnPressed:" destination="dKV-c9-JbD" eventType="touchUpInside" id="V85-UJ-Hvt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="消息" image="tab_chat" selectedImage="tab_chat_hover" id="mTi-6a-PaJ"/>
+                    <connections>
+                        <outlet property="datePicker" destination="gVz-et-Wle" id="Kks-WQ-3q2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGi-Hz-gjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="-179"/>
+        </scene>
+        <!--Main Screen-->
+        <scene sceneID="Rfm-w2-TgL">
+            <objects>
+                <tabBarController storyboardIdentifier="main" id="5YR-hD-Fes" customClass="MainScreen" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fcY-66-6lP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="tabBarView" destination="fcY-66-6lP" id="dS1-Yg-39w"/>
+                        <segue destination="dKV-c9-JbD" kind="relationship" relationship="viewControllers" id="Y2D-y7-slk"/>
+                        <segue destination="P03-HC-0FF" kind="relationship" relationship="viewControllers" id="CqP-mV-qYq"/>
+                        <segue destination="g85-r5-dAE" kind="relationship" relationship="viewControllers" id="Fi3-C5-WVY"/>
+                        <segue destination="t0d-tx-log" kind="relationship" relationship="viewControllers" id="iei-kP-EBx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Q0-vP-aui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="149"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="CXk-uz-3nS">
+            <objects>
+                <viewController storyboardIdentifier="found" id="g85-r5-dAE" customClass="FoundScreen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qlj-q1-KJd"/>
+                        <viewControllerLayoutGuide type="bottom" id="pAt-MF-QsD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7BC-UO-OnN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahC-HJ-3BR">
+                                <rect key="frame" x="166" y="69" width="35" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V25-fz-TB1">
+                                <rect key="frame" x="162" y="253" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="点击我"/>
+                                <connections>
+                                    <action selector="setOutput:" destination="g85-r5-dAE" eventType="touchUpInside" id="cBa-9K-Iqy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odc-l2-0bY">
+                                <rect key="frame" x="139" y="171" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.027096759170000002" green="0.032380234770000002" blue="0.029497638619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请输入信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vb-8W-eQy">
+                                <rect key="frame" x="142" y="98" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.986981357" blue="0.9737594718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="发现" image="tab_found" selectedImage="tab_found_hover" id="8cO-dh-Ryy"/>
+                    <connections>
+                        <outlet property="userInput" destination="Odc-l2-0bY" id="JVk-Zy-Vcc"/>
+                        <outlet property="userOutput" destination="8vb-8W-eQy" id="cfE-AO-gE4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgr-PT-nRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-602" y="834"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab_chat" width="20" height="20"/>
+        <image name="tab_chat_hover" width="20" height="20"/>
+        <image name="tab_contacts" width="20" height="20"/>
+        <image name="tab_contacts_hover" width="20" height="20"/>
+        <image name="tab_found" width="20" height="20"/>
+        <image name="tab_found_hover" width="20" height="20"/>
+        <image name="tab_me" width="20" height="20"/>
+        <image name="tab_me_hover" width="20" height="20"/>
+    </resources>
+</document>
